@@ -11,14 +11,16 @@ const Button = ({ text, acept }) => {
 
   const setPosItem = () => {
     if (miElementoRef.current) {
-      let newTop = Math.floor(Math.random() * (dimensiones.alto - 100));
-      let newLeft = Math.floor(Math.random() * (dimensiones.ancho - 100));
+      let newTop = `${Math.floor(Math.random() * (dimensiones.alto - 100))}px`;
+      let newLeft = `${Math.floor(
+        Math.random() * (dimensiones.ancho - 100)
+      )}px`;
 
       // Aplicar la nueva posición
       miElementoRef.current.style.position = "absolute";
       miElementoRef.current.style.display = "block";
-      miElementoRef.current.style.top = `${newTop}px`;
-      miElementoRef.current.style.left = `${newLeft}px`;
+      miElementoRef.current.style.top = `${newTop}`;
+      miElementoRef.current.style.left = `${newLeft}`;
     }
   };
 
@@ -31,6 +33,7 @@ const Button = ({ text, acept }) => {
         emojiSize: 40,
         confettiNumber: 300,
       });
+      document.documentElement.style.overflow = "hidden";
     } else if (text.includes("No")) {
       setPosItem();
     }
